@@ -209,27 +209,4 @@ nav a.active {
     }
 }
 
-@media (max-width: 600px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
 
-    header .logo img {
-        max-width: 100%;
-    }
-
-    nav {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    nav a {
-        margin: 5px 0;
-    }
-
-    .product-info select {
-        max-width: 100%;
-    }
-}
