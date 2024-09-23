@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bun Bun Bake Shop - Product Details</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/price.js" defer></script> <!-- Link to your external JavaScript file -->
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="../assets/logo/logo-01.svg" width="200" alt="Bun Bun Bake Shop Logo"/>
+            </a>
+        </div>
+        <nav>
+            <a href="index.html" class="active">PRODUCTS</a>
+            <a href="cart.html">CART</a>
+        </nav>
+    </header>
+
+    <section class="product-section">
+        <h1>Original cinnamon roll</h1>
+        <div class="product-detail-grid">
+            <div class="product-image">
+                <img src="../assets/products/original-cinnamon-roll.jpg" alt="Original cinnamon roll" class="product-detail-image">
+            </div>
+
+            <div class="product-info">
+                <p>Customize our delicious, hand-made cinnamon roll to your liking!</p>
+
+                <!-- Glazing Dropdown -->
+                <label for="glazing">Glazing:</label>
+                <select id="glazing">
+                    <!-- Options will be dynamically populated by JavaScript -->
+                </select>
+
+                <br>
+
+                <!-- Pack Size Dropdown -->
+                <label for="pack-size">Pack size:</label>
+                <select id="pack-size">
+                    <!-- Options will be dynamically populated by JavaScript -->
+                </select>
+
+                <br>
+
+                <!-- Dynamic Price Update -->
+                <div class="price-button-container">
+                    <p class="price">$2.49</p> <!-- This price will update dynamically -->
+                    <button class="specialButton">Add to Cart</button>
+                </div>          
+            </div>
+        </div>
+    </section>
+</body>
+</html>
