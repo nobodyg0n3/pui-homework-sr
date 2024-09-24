@@ -1,13 +1,13 @@
 //glazing and pack options
 const glazingOptions = [
-    {name: 'Keep original', price: 0},
+    {name: 'Keep original  ▼', price: 0},
     {name: 'Sugar milk', price: 0},
     {name: 'Vanilla milk', price: 0.5},
     {name: 'Double chocolate', price: 1.5}
 ];
 
 const packSizeOptions = [
-    {size: 1, multiplier: 1},
+    {size: 1 , multiplier: 1},
     {size: 3, multiplier: 3},
     {size: 6, multiplier: 5},
     {size: 12, multiplier: 10}
