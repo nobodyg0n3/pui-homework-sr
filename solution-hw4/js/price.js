@@ -1,53 +1,49 @@
-//glazing and pack options
+// Glazing and pack options
 const glazingOptions = [
-    {name: 'Keep original  ▼', price: 0},
-    {name: 'Sugar milk', price: 0},
-    {name: 'Vanilla milk', price: 0.5},
-    {name: 'Double chocolate', price: 1.5}
+    { name: 'Keep original  ▼', price: 0 },
+    { name: 'Sugar milk', price: 0 },
+    { name: 'Vanilla milk', price: 0.5 },
+    { name: 'Double chocolate', price: 1.5 }
 ];
 
 const packSizeOptions = [
-    {size: 1 , multiplier: 1},
-    {size: 3, multiplier: 3},
-    {size: 6, multiplier: 5},
-    {size: 12, multiplier: 10}
+    { size: 1, multiplier: 1 },
+    { size: 3, multiplier: 3 },
+    { size: 6, multiplier: 5 },
+    { size: 12, multiplier: 10 }
 ];
 
-// base price of a single cinnamon roll
-const basePrice = 2.49;
-
+// Get necessary details
 const glazingSelect = document.getElementById('glazing');
 const packSizeSelect = document.getElementById('pack-size');
-const priceElement = document.querySelector('.price');
+const priceElement = document.getElementById('product-price'); 
 
-// populates the glazing and pack options dropdown dynamically
-for (let i = 0; i < glazingOptions.length; i++) {
-    let option = document.createElement('option');
-    option.textContent = glazingOptions[i].name;
-    option.value = glazingOptions[i].price;
-    glazingSelect.appendChild(option);
-}
+// Populate glazing options dynamically
+glazingOptions.forEach(option => {
+    const optionElement = document.createElement('option');
+    optionElement.textContent = option.name;
+    optionElement.value = option.price;
+    glazingSelect.appendChild(optionElement);
+});
 
-for (let i = 0; i < packSizeOptions.length; i++) {
-    let option = document.createElement('option');
-    option.textContent = packSizeOptions[i].size;
-    option.value = packSizeOptions[i].multiplier;
-    packSizeSelect.appendChild(option);
-}
+// Populate pack size options dynamically
+packSizeOptions.forEach(option => {
+    const optionElement = document.createElement('option');
+    optionElement.textContent = option.size;
+    optionElement.value = option.multiplier;
+    packSizeSelect.appendChild(optionElement);
+});
 
-//updates the price dynamically
 function updatePrice() {
-    const selectedGlazingPrice = parseFloat(glazingSelect.value);
-    const selectedPackSizeMultiplier = parseFloat(packSizeSelect.value);
-
-    const totalPrice = (basePrice + selectedGlazingPrice) * selectedPackSizeMultiplier;
+    const selectedGlazingPrice = parseFloat(glazingSelect.value); 
+    const selectedPackSizeMultiplier = parseFloat(packSizeSelect.value); 
+    const rollBasePrice = parseFloat(priceElement.dataset.baseprice); 
+    const totalPrice = (rollBasePrice + selectedGlazingPrice) * selectedPackSizeMultiplier;
+    
     priceElement.textContent = `$${totalPrice.toFixed(2)}`;
 }
 
+glazingSelect.addEventListener('change', updatePrice); 
+packSizeSelect.addEventListener('change', updatePrice); 
 
-//event listeners
-glazingSelect.addEventListener('change', updatePrice);
-packSizeSelect.addEventListener('change', updatePrice);
-
-//initialize the price on page load
-window.onload = updatePrice;
+updatePrice();

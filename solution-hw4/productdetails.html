@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+    <script src="js/rollsData.js"></script>    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bun Bun Bake Shop - Product Details</title>
     <link rel="stylesheet" href="css/styles.css">
+   
     
-    <script src="js/rollsData.js" defer></script> 
-    <script src="js/price.js" defer></script> 
 </head>
 <body>
     <header>
@@ -26,53 +26,51 @@
         <h1 id="product-title">Cinnamon Roll</h1> 
         <div class="product-detail-grid">
             <div class="product-image">
-                <img id="product-image" src="../assets/products/original-cinnamon-roll.jpg" alt="Cinnamon Roll" class="product-detail-image"> <!-- Image will be dynamically updated -->
+                <img id="product-image" src="../assets/products/original-cinnamon-roll.jpg" alt="Cinnamon Roll" class="product-detail-image">
             </div>
 
             <div class="product-info">
                 <h3>Customize our delicious, hand-made cinnamon roll to your liking!</h3>
 
                 <label for="glazing">Glazing:</label>
-                <select id="glazing">
-                </select>
+                <select id="glazing"></select>
 
                 <br>
 
                 <label for="pack-size">Pack size:</label>
-                <select id="pack-size">
-                </select>
+                <select id="pack-size"></select>
 
                 <br>
 
                 <div class="price-button-container">
-                    <p class="price" id="product-price">$2.49</p>
+                    <p class="price" id="product-price" data-baseprice="2.49">$2.49</p>
                     <button id="add-to-cart" class="specialButton">Add to Cart</button>
                 </div>          
             </div>
         </div>
     </section>
 
-    <script>
-        console.log(rolls); // Debugging: This should display the rolls object in the console
+    <script src="js/price.js" ></script>
 
+    <script>
         const queryString = window.location.search;
         const params = new URLSearchParams(queryString);
-        const rollType = params.get('roll'); // Extract the roll type from the URL
+        const rollType = params.get('roll'); 
 
         const titleElement = document.getElementById('product-title');
         const imageElement = document.getElementById('product-image');
-        const priceElement = document.getElementById('product-price');
 
-        // Get the roll data from rollsData.js
         const rollData = rolls[rollType]; 
 
         if (rollData) {
-            titleElement.textContent = `${rollType} Cinnamon Roll`; // Update title
-            imageElement.src = `../assets/products/${rollData.imageFile}`; // Update image
-            priceElement.textContent = `$${rollData.basePrice.toFixed(2)}`; // Update price
+            titleElement.textContent = `${rollType} Cinnamon Roll`; 
+            imageElement.src = `../assets/products/${rollData.imageFile}`; 
+            priceElement.dataset.baseprice = rollData.basePrice; 
+            priceElement.textContent = `$${rollData.basePrice.toFixed(2)}`; 
         } else {
             console.error(`Roll data not found for type: ${rollType}`);
         }
+
 
         // Add to Cart functionality
         class Roll {
@@ -89,10 +87,10 @@
         const addToCartButton = document.getElementById('add-to-cart');
         addToCartButton.addEventListener('click', function() {
             const glazing = document.getElementById('glazing').value;
-            const packSize = document.getElementById('pack-size').value;
+            const packSize = packSizeSelect.options[packSizeSelect.selectedIndex].textContent;  // Extracting size FINALLY GOT IT HEHE
             const newRoll = new Roll(rollType, glazing, packSize, rollData.basePrice);
             cart.push(newRoll); 
-            console.log(cart); 
+            console.log(cart);  
         });
 
     </script>
