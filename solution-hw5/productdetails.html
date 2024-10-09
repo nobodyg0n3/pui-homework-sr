@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bun Bun Bake Shop - Product Details</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script src="js/rollsData.js" type="module" defer></script>
+    <script src="js/price.js" type="module" defer></script>
+    <script src="js/cart.js" type="module" defer></script> <!-- Specify type="module" here -->
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="../assets/logo/logo-01.svg" width="200" alt="Bun Bun Bake Shop Logo"/>
+            </a>
+        </div>
+        <nav>
+            <a href="index.html" class="active">PRODUCTS</a>
+            <a href="cart.html">CART</a>
+        </nav>
+    </header>
+
+    <section class="product-section">
+        <h1 id="product-title">Cinnamon Roll</h1>
+        <div class="product-detail-grid">
+            <div class="product-image">
+                <img id="product-image" src="../assets/products/original-cinnamon-roll.jpg" alt="Cinnamon Roll" class="product-detail-image">
+            </div>
+
+            <div class="product-info">
+                <h3>Customize our delicious, hand-made cinnamon roll to your liking!</h3>
+
+                <label for="glazing">Glazing:</label>
+                <select id="glazing"></select>
+
+                <br>
+
+                <label for="pack-size">Pack size:</label>
+                <select id="pack-size"></select>
+
+                <br>
+
+                <div class="price-button-container">
+                    <p class="price" id="product-price" data-baseprice="2.49">$2.49</p>
+                    <button id="add-to-cart" class="specialButton">Add to Cart</button>
+                </div>          
+            </div>
+        </div>
+    </section>
+
+    <script type="module">
+        import { rolls } from './js/rollsData.js';
+        const queryString = window.location.search;
+        const params = new URLSearchParams(queryString);
+        const rollType = params.get('roll');
+
+        const titleElement = document.getElementById('product-title');
+        const imageElement = document.getElementById('product-image');
+        const priceElement = document.getElementById('product-price');
+
+        const rollData = rolls[rollType];
+
+        if (rollData) {
+            titleElement.textContent = `${rollType} Cinnamon Roll`; 
+            imageElement.src = `../assets/products/${rollData.imageFile}`; 
+            priceElement.dataset.baseprice = rollData.basePrice; 
+            priceElement.textContent = `$${rollData.basePrice.toFixed(2)}`; 
+            
+            populateGlazingOptions();
+            populatePackSizeOptions();
+        } else {
+            console.error(`Roll data not found for type: ${rollType}`);
+        }
+
+        function populateGlazingOptions() {
+            const glazingSelect = document.getElementById('glazing');
+            const glazingOptions = ["Original", "Sugar Milk", "Vanilla Milk", "Double-Chocolate"]; // List of glazing options
+
+            glazingOptions.forEach(glazing => {
+                const option = document.createElement('option');
+                option.value = glazing;
+                option.textContent = glazing;
+                glazingSelect.appendChild(option);
+            });
+        }
+
+        function populatePackSizeOptions() {
+            const packSizeSelect = document.getElementById('pack-size');
+            const packSizes = [1, 3, 6, 12];
+
+            packSizes.forEach(size => {
+                const option = document.createElement('option');
+                option.value = size;
+                option.textContent = size; 
+                packSizeSelect.appendChild(option);
+            });
+        }
+    </script>
+</body>
+</html>
