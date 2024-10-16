@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bun Bun Bake Shop - Product Details</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script src="js/rollsData.js" type="module" defer></script>
+    <script src="js/price.js" type="module" defer></script>
+    <script src="js/cart.js" type="module" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="../assets/logo/logo-01.svg" width="200" alt="Bun Bun Bake Shop Logo"/>
+            </a>
+        </div>
+        <nav>
+            <a href="index.html" class="active">PRODUCTS</a>
+            <a href="cart.html">CART</a>
+        </nav>
+    </header>
+
+    <section class="product-section">
+        <h1 id="product-title">Cinnamon Roll</h1>
+        <div class="product-detail-grid">
+            <div class="product-image">
+                <img id="product-image" src="../assets/products/original-cinnamon-roll.jpg" alt="Cinnamon Roll" class="product-detail-image">
+            </div>
+
+            <div class="product-info">
+                <h3>Customize our delicious, hand-made cinnamon roll to your liking!</h3>
+
+                <label for="glazing">Glazing:</label>
+                <select id="glazing"></select>
+
+                <br>
+
+                <label for="pack-size">Pack size:</label>
+                <select id="pack-size"></select>
+
+                <br>
+
+                <div class="price-button-container">
+                    <p class="price" id="product-price" data-baseprice="2.49">$2.49</p>
+                    <button id="add-to-cart" class="specialButton">Add to Cart</button>
+                </div>          
+            </div>
+        </div>
+    </section>
+
+    <script type="module">
+        import { rolls } from './js/rollsData.js';
+        import { addToCart } from './js/cart.js';
+        import { calculatePrice } from './js/price.js';
+
+        const queryString = window.location.search;
+        const params = new URLSearchParams(queryString);
+        const rollType = params.get('roll');
+
+        const titleElement = document.getElementById('product-title');
+        const imageElement = document.getElementById('product-image');
+        const priceElement = document.getElementById('product-price');
+
+        const rollData = rolls[rollType];
+
+        if (rollData) {
+            titleElement.textContent = `${rollType} Cinnamon Roll`; 
+            imageElement.src = `../assets/products/${rollData.imageFile}`; 
+            imageElement.alt = `${rollType} Cinnamon Roll`;
+            priceElement.dataset.baseprice = rollData.basePrice; 
+            updatePrice(); // Update price initially
+
+            populateGlazingOptions();
+            populatePackSizeOptions();
+
+            // Attach event listeners to update price when selections change
+            document.getElementById('glazing').addEventListener('change', updatePrice);
+            document.getElementById('pack-size').addEventListener('change', updatePrice);
+        } else {
+            console.error(`Roll data not found for type: ${rollType}`);
+            titleElement.textContent = `Product Not Found`;
+        }
+
+        function populateGlazingOptions() {
+            const glazingSelect = document.getElementById('glazing');
+            const glazingOptions = ["Original", "Sugar Milk", "Vanilla Milk", "Double-Chocolate"];
+
+            glazingOptions.forEach((glazing, index) => {
+                const option = document.createElement('option');
+                option.value = glazing;
+                option.textContent = glazing;
+                if(index === 0) option.selected = true; // Set default to first option
+                glazingSelect.appendChild(option);
+            });
+        }
+
+        function populatePackSizeOptions() {
+            const packSizeSelect = document.getElementById('pack-size');
+            const packSizes = [1, 3, 6, 12];
+
+            packSizes.forEach((size, index) => {
+                const option = document.createElement('option');
+                option.value = size;
+                option.textContent = size; 
+                if(index === 0) option.selected = true; // Set default to first option
+                packSizeSelect.appendChild(option);
+            });
+        }
+
+        function updatePrice() {
+            const selectedGlazing = document.getElementById('glazing').value;
+            const selectedPackSize = parseInt(document.getElementById('pack-size').value);
+            const basePrice = parseFloat(priceElement.dataset.baseprice);
+            
+            // Use the calculatePrice function from price.js
+            const totalPrice = calculatePrice(basePrice, selectedGlazing, selectedPackSize);
+
+            priceElement.textContent = `$${totalPrice.toFixed(2)}`;
+        }
+
+        // Add event listener to the Add to Cart button
+        document.getElementById('add-to-cart').addEventListener('click', () => {
+            const glazing = document.getElementById('glazing').value;
+            const size = document.getElementById('pack-size').value;
+            const priceText = priceElement.textContent.replace('$', '').trim();
+            const price = parseFloat(priceText);
+
+            if (isNaN(price)) {
+                alert('Invalid price. Please try adding the item again.');
+                return;
+            }
+
+            addToCart(rollType, glazing, size, price, imageElement.src);
+        });
+    </script>
+</body>
+</html>

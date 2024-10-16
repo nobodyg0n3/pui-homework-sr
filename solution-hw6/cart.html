@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bun Bun Bake Shop - Cart</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/cart.js" type="module" defer></script> <!-- Ensure cart.js is imported -->
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="../assets/logo/logo-01.svg" width="200" alt="Bun Bun Bake Shop Logo"/>
+            </a>
+        </div>
+        <nav>
+            <a href="index.html">PRODUCTS</a>
+            <a href="cart.html" class="active">CART</a>
+        </nav>
+    </header>
+
+    <section class="cart-section">
+        <h1>Your Cart</h1>
+        <div id="cart-items">
+            <img src="../assets/image/cinnamon-roll.png" alt="Original Cinnamon Roll">
+            <!-- Your cart item goes here -->
+        </div>
+        <div id="checkout-section">
+            <div id="total-price-container">
+                <hr>
+                <p>Total Price: <span id="total-price">$2.49</span></p>
+            </div>
+            <button class="specialButton">Checkout</button>
+        </div>
+    </section>
+</body>
+</html>
