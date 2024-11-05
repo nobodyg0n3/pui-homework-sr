@@ -117,77 +117,123 @@ Remember to keep track of your prompts and usage for [FP4 writeup](#part-6-gener
 
 ## Project Description
 
-Briefly restate your motivation and a short description of your project.
+This portfolio website aims to present a fun yet professional image, showcasing my background in Human-Computer Interaction (HCI) and Information Systems (IS). Balancing creativity with professionalism, the portfolio will feature both software development and design elements, creating a dynamic user experience that reflects my dual expertise in technical and creative fields.
+
 
 ## High-Fi Prototypes
 
 ### *Prototype 1*
 
-![title for prototype1](images/prototype1.png)
+![Protype 1 Home Page](images/prototypes/p1.png)
 
-A brief description and summary of the user feedback (\<100 words, 2 images) 
+Prototype 1 features the initial layout for the home page, which introduces the user to my profile and professional background. The main feedback highlighted a need for enhanced visual contrast and simplified navigation, especially for users unfamiliar with HCI and IS concepts.Everything is block based so based on filters, it will dynamically change the projects page based on interest.
+
 
 ### *Prototype 2*
 
-…
+![Protype 2 Home Page](images/prototypes/p2.png)
+The second idea is a closer example to a combination of ideas. In comparison to p1, it has increased color variability, reorganized project sections, and added filtering options for an enhanced user experience. 
 
 ## Usability Test
 
-Discuss the user feedback you got during the evaluation / usability test (\~300 words). Indicate which feedback you implemented, inspired new directions, or otherwise influenced your final design. 
+I conducted four user tests with participants from diverse backgrounds: one recruiter, one designer, one software engineer, and one individual unaffiliated with similar fields. The testing involved a think-aloud protocol, allowing users to express their thoughts while interacting with the portfolio. The main focus areas included locating the resume, navigating through projects, and finding the "About" section.
+
+**General Findings:**
+
+1. **Toggle and Filter Changes**: Feedback regarding the toggle feature was mixed. Some users suggested that I might benefit from reverting to a simpler toggle between software and design sections. However, others encouraged the addition of more filtering options for better project categorization. As a result, I am considering implementing a flexible filtering system that allows users to switch perspectives while also providing tags for finer categorization.
+
+2. **Contrast and Visual Design**: Participants mentioned that enhancing the contrast between different elements of the design could improve readability. This feedback is vital for ensuring that all users, including those with visual impairments, can navigate the site comfortably. I plan to conduct a thorough review of color choices and contrast levels to enhance the overall visual accessibility of the portfolio.
+
+3. **Guidance with Buttons**: Users indicated that the use of buttons to guide navigation was beneficial, as it provided clear calls to action throughout the site. This input has encouraged me to further develop button placements and styles, ensuring they effectively lead users through the portfolio's sections without overwhelming them.
+
+4. **Resume Page Testing**: The need for additional testing on the resume page was highlighted. Participants expressed uncertainty about the best format for presenting my resume, indicating that further feedback could clarify user preferences. I plan to engage additional testers to evaluate different formats, ensuring the resume page aligns with user expectations and is easily accessible.
+
+5. **Sidebar Navigation**: Lastly, users recommended adding a “Home” link to the sidebar for easier navigation. This simple addition will provide users with a quick way to return to the homepage from any section of the portfolio, enhancing the overall user experience.
+
+
+The testing results have provided me with crucial insights into improving my portfolio's design and functionality. By addressing the feedback regarding toggles, contrast, navigation buttons, resume presentation, and sidebar options, I can create a more user-friendly experience that effectively showcases my work and skills.
+
 
 ## Updated Designs
 
-Show screenshots of your updated design based on the user feedback (\<100 words, \~2 images).
+Based on user feedback, the updated designs feature more detailed project cards that highlight key aspects of each project. Visual cues have been incorporated to guide users intuitively through the timeline and toggle functionalities, improving usability across various devices. I have reverted to the original toggle design instead of a filter, although this may still evolve based on further feedback. Additionally, I've implemented tags and shortened descriptions for individual projects to enhance clarity and facilitate quicker understanding of my work. These changes aim to create a more engaging and user-friendly experience for visitors to my portfolio.
+
+![Updated design of Home Page](images/Prototypes/Updated%20design%20about%20me.png)
+
+![Updated design of About Page](images/Prototypes/Updated%20design%20about%20me.png)
+
 
 ## Feedback Summary
 
-Summarize the feedback you received in the lab session and discuss how it influenced your design (\~300 words). 
+During the lab session, my peers and instructors provided valuable feedback on improving the website’s functionality and aesthetics. They praised its clean design and intuitive navigation, recognizing these qualities as important for user engagement and a professional feel. However, they suggested some changes to enhance the user experience, especially within the project section. One of the primary suggestions was to add more concise information on project cards, allowing users to quickly grasp the nature of each project without having to click through each one individually. This would help communicate the range and depth of my work more effectively, especially for first-time visitors who may only scan the page initially.
+
+Additionally, feedback emphasized the need for an improved information hierarchy in the project section. They recommended reorganizing elements so that key details, such as project type, tools used, or specific outcomes, stand out more prominently. Given my background spanning multiple disciplines, they advised integrating a tagging system for the project cards. Tags would provide an at-a-glance overview of my skills, helping users understand the diversity in my portfolio. For example, tags such as "machine learning," "design," "education," "project management," and "policy" could clearly highlight the multifaceted nature of my expertise, allowing viewers to filter and explore the areas that interest them most.
+
+The toggle or filter feature received positive reactions as an effective way to distinguish between software and design projects, but opinions were mixed on its implementation. Some suggested using a tag-based filter to allow users to refine results based on specific categories or themes, while others advocated for a more prominent toggle that would switch between broader sections of software and design. This feedback has helped me realize the importance of optimizing the feature for usability, leading me to consider a hybrid approach. I am now inclined to prioritize a tag-based filter for its flexibility while retaining the toggle feature to give users a quick way to shift focus between my software and design work.
+
+Another valuable piece of advice was to create a more immersive experience when navigating between the different roles I have held, particularly by emphasizing the diverse nature of my work in project management, design, software, and policy. This could be achieved through thoughtful design choices in the navigation flow, guiding users seamlessly as they explore the portfolio. My peers also suggested reducing the length of project descriptions, as users are often looking for quick insights rather than detailed text. 
+
+This feedback has encouraged me to focus on an accessible, clear information hierarchy, paired with an engaging, user-friendly filtering system. This approach will enhance the portfolio’s structure, allowing viewers to understand my diverse skill set and experience without feeling overwhelmed.
 
 ## Milestones
 
-Outline weekly milestones to plan your expected implementation progress until the end of the semester (\~300 words). 
+Here is the weekly implementation plan to ensure steady progress until the end of the semester:
 
 ### *Implementation Plan*
 
-- [ ] Week 9 Oct 28 \- Nov 1:
+- **Week 9 (Oct 28 - Nov 1)**
   - [X] FP1 due
-  - [ ] ...
-  
-- [ ] Week 10 Nov 4 \- Nov 8:   
-  - [ ] FP2 due
+  - [X] Start working on prototype 1 & 2
+  - [X] Start collecting key infomfation
+  - [X] User Test
 
-- [ ] Week 11 Nov 11 \- Nov 15:  
-- [ ] Week 12 Nov 18 \- Nov 22:   
-- [ ] Week 13 Nov 25 \- Nov 29:  
+- **Week 10 (Nov 4 - Nov 8)**
+  - [X] FP2 due
+  - [X] Build basic website (basic pages, html, etc)
+  - [X] User Test
+  - [ ] Add information hierarchy improvements to project section
 
-  - [ ] Thanksgiving  
-- [ ] Week 14 Dec 2 \- Dec 6:  
-  - [ ] FP4 due 
+- **Week 11 (Nov 11 - Nov 15)**
+  - [ ] FP3 due 
+  - [ ] Implement updated design for project cards with additional details
+  - [ ] Test and refine toggle accessibility
+
+- **Week 12 (Nov 18 - Nov 22)**
+  - [ ] Begin mobile responsiveness adjustments
+  - [ ] Conduct further user testing on updated features
+
+- **Week 13 (Nov 25 - Nov 29)**
+  - [ ] Thanksgiving Break
+  - [ ] Refine Website, focus on increasing accessibility score
+
+- **Week 14 (Dec 2 - Dec 6)**
+  - [ ] FP4 due
+  - [ ] Finalize color contrast and readability improvements
 
 ### *Libraries and Other Components*
 
-List the JS libraries and other components (if applicable) that you plan to use. 
-* 
+The following libraries and components will be used in the project:
+- **jQuery** for DOM manipulation
+- **Animate.css** for simple hover effects
+- **AOS (Animate on Scroll)** for scroll animations
 
 
 ## Generative AI Use Plan
 
-Outline how you plan to use Generative AI tools to aid in the implementation (\~300 words).
-
 ### *Tool Use*
 
  What would you use? Edit the list given your plan. For each tool, explain briefly on what do you expect Generative AI to help you with and what might it not be able to help you with.
-
-* ChatGPT  
-  * I will use it for … because it can help me …  
-  * I will not use it for … because it might not be able to help me with …   
-* GitHub Copilot  
-* ...
+ 
+ * ChatGPT: 
+    - I plan to use ChatGPT to help brainstorm, revise basic writing content, and generate code snippets for simpler components. It will not be used for final code testing or debugging, as direct, context-specific solutions require hands-on coding and testing.
+  * GitHub Copilot:
+    -  Useful for autocomplete in code, Copilot will assist in speeding up coding, especially for repetitive tasks and initial scaffolding. However, it won’t be relied upon for critical design decisions or complex interactions, as these need custom solutions aligned with user feedback.
 
 ### *Responsible Use*
 
 How would you use Generative AI responsibly? 
 
+I will use Generative AI responsibly by verifying all code suggestions and ideas to ensure they align with project requirements. Additionally, I'll avoid over-relying on AI for testing or debugging, as these need a human touch to ensure quality and usability. For language revisions, I will always have it revise text I have already written, rather than generate new text.
 ---
 
 # **FP1 \- Proposal for Critique**
@@ -256,7 +302,7 @@ Reflecting on the feedback, my focus is now on merging Ideas 2 and 3 to create a
 
 I’ve decided to approach the resume page based on a balance of simplicity and ambition. I found it challenging to get specific feedback on which resume format to choose, as my peers seemed indecisive and only responded when I asked direct questions. Given the limited guidance, I’ll aim for an MVP approach with a simple PDF hyperlink initially, which aligns with the standard setup on many portfolio sites. However, my goal is to develop this further into an animated resume with an option to download, offering an engaging yet practical overview of my experiences. This will be explored more throughout the development process and testing.
 
-For the “About” page, I plan to expand beyond the typical image and brief intro commonly seen on other portfolios. This page offers an opportunity to provide a more comprehensive view of my background, particularly my leadership experiences. For instance, I can highlight my work in advancing CS Equity and accessibility, which led to a letter of recognition from Kamala Harris. The inclusion of such experiences will make the “About” page more meaningful, showing not only my skills but my commitments and the impact of my work.
+For the "About" page, I plan to expand beyond the typical image and brief intro commonly seen on other portfolios. This page offers an opportunity to provide a more comprehensive view of my background, particularly my leadership experiences. For instance, I can highlight my work in advancing CS Equity and accessibility, which led to a letter of recognition from Kamala Harris. The inclusion of such experiences will make the "About" page more meaningful, showing not only my skills but my commitments and the impact of my work.
 
 Accessibility remains a critical focus, but I understand now that trying to make every element perfectly accessible immediately may not be feasible. Instead, I’ll focus on practical, high-impact improvements and continuously seek feedback to refine the design as I go. This will allow me to address the needs that most affect usability while balancing the ambition of my design. This makes me more confident in achieving a high quality combination of idea 2 and 3.
 
